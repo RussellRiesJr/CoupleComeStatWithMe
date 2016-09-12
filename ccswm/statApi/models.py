@@ -3,11 +3,11 @@ from django.db import models
 # Create your models here.
 
 
-seasons = [(number, number) for number in range(1, 4)]
-episodes = [(number, number) for number in range(1, 70)]
-nights = [(number, number) for number in range(1, 3)]
-scores = [(number, number) for number in range(0, 20)]
-totals = [(number, number) for number in range(0, 40)]
+seasons = [(number, number) for number in range(1, 5)]
+episodes = [(number, number) for number in range(1, 71)]
+nights = [(number, number) for number in range(1, 4)]
+scores = [(number, number) for number in range(0, 21)]
+totals = [(number, number) for number in range(0, 41)]
 
 
 class Episode(models.Model):
@@ -57,7 +57,7 @@ class CoupleMeal(models.Model):
     entertainment = models.ForeignKey(Entertainment, related_name='meal')
 
 
-class Couple(models.Models):
+class Couple(models.Model):
     nightNumber = models.IntegerField(choices=nights, default=1)
     ageRange = models.CharField(max_length=6)
     sexPref = models.CharField(max_length=15)

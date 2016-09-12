@@ -1,4 +1,4 @@
-from statApi.models import Episode, Starter, Entree, Dessert, Entertainment, CoupleMeal, Couple, Results
+from ccswm.statApi.models import Episode, Starter, Entree, Dessert, Entertainment, CoupleMeal, Couple, Results
 from rest_framework import serializers
 
 
