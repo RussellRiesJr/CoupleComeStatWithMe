@@ -21,7 +21,9 @@ class Episode(models.Model):
 
 class Starter(models.Model):
     protein = models.CharField(max_length=100)
+    proteinStyle = models.CharField(max_length=100)
     side = models.CharField(max_length=100)
+    sideStyle = models.CharField(max_length=100)
 
     def __str__(self):
         return self.protein
@@ -29,7 +31,9 @@ class Starter(models.Model):
 
 class Entree(models.Model):
     protein = models.CharField(max_length=100)
+    proteinStyle = models.CharField(max_length=100)
     side = models.CharField(max_length=100)
+    sideStyle = models.CharField(max_length=100)
 
     def __str__(self):
         return self.protein

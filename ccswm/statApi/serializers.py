@@ -11,13 +11,13 @@ class EpisodeSerializer(serializers.HyperlinkedModelSerializer):
 class StarterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Starter
-        fields = ('id', 'url', 'protein', 'side')
+        fields = ('id', 'url', 'protein', 'proteinStyle', 'side', 'sideStyle')
 
 
 class EntreeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Entree
-        fields = ('id', 'url', 'protein', 'side')
+        fields = ('id', 'url', 'protein', 'proteinStyle', 'side', 'sideStyle')
 
 
 class DessertSerializer(serializers.HyperlinkedModelSerializer):
