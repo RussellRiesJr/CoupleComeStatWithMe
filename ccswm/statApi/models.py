@@ -67,7 +67,6 @@ class Couple(models.Model):
     sexPref = models.CharField(max_length=15)
     mrtlStat = models.CharField(max_length=15)
     mrtlLength = models.CharField(max_length=15)
-    haveTheme = models.BooleanField
     theme = models.CharField(max_length=30)
     foodEth = models.CharField(max_length=30)
     episode = models.ForeignKey(Episode, related_name='couple')
