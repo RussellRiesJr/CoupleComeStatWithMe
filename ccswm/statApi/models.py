@@ -61,7 +61,7 @@ class CoupleMeal(models.Model):
     entertainment = models.ForeignKey(Entertainment, related_name='meal')
 
     def __str__(self):
-        return "{}: {}".format(self.id, self.Starter.description)
+        return "{}: {}".format(self.id, self.starter.description)
 
 
 class Couple(models.Model):

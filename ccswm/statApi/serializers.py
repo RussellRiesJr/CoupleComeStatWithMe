@@ -41,7 +41,7 @@ class CoupleMealSerializer(serializers.HyperlinkedModelSerializer):
 class CoupleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Couple
-        fields = ('id', 'url', 'nightNumber', 'ageRange', 'sexPref', 'mrtlStat', 'mrtlLength', 'haveTheme', 'theme', 'foodEth', 'episode', 'coupleMeal')
+        fields = ('id', 'url', 'nightNumber', 'ageRange', 'sexPref', 'mrtlStat', 'mrtlLength', 'theme', 'foodEth', 'episode', 'coupleMeal')
 
 
 class ResultsSerializer(serializers.HyperlinkedModelSerializer):
