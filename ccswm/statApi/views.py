@@ -50,3 +50,4 @@ class ResultsViewSet(viewsets.ModelViewSet):
     model = Results
     queryset = Results.objects.all()
     serializer_class = ResultsSerializer
+

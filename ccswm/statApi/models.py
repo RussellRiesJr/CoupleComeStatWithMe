@@ -80,3 +80,4 @@ class Results(models.Model):
     oppBVote = models.IntegerField(choices=scores, default=0)
     totalScore = models.IntegerField(choices=totals, default=0)
     outcome = models.CharField(max_length=15)
+
