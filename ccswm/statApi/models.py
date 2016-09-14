@@ -16,7 +16,7 @@ class Episode(models.Model):
     location = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.location
+        return "{}: {}".format(self.id, self.location)
 
 
 class Starter(models.Model):
@@ -26,7 +26,7 @@ class Starter(models.Model):
     sideStyle = models.CharField(max_length=100, default='')
 
     def __str__(self):
-        return self.protein
+        return "{}: {}".format(self.id, self.protein)
 
 
 class Entree(models.Model):
@@ -36,7 +36,7 @@ class Entree(models.Model):
     sideStyle = models.CharField(max_length=100, default='')
 
     def __str__(self):
-        return self.protein
+        return "{}: {}".format(self.id, self.protein)
 
 
 class Dessert(models.Model):
@@ -44,14 +44,14 @@ class Dessert(models.Model):
     secondary = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.primary
+        return "{}: {}".format(self.id, self.primary)
 
 
 class Entertainment(models.Model):
     description = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.description
+        return "{}: {}".format(self.id, self.description)
 
 
 class CoupleMeal(models.Model):
@@ -59,6 +59,9 @@ class CoupleMeal(models.Model):
     entree = models.ForeignKey(Entree, related_name='meal')
     dessert = models.ForeignKey(Dessert, related_name='meal')
     entertainment = models.ForeignKey(Entertainment, related_name='meal')
+
+    def __str__(self):
+        return "{}: {}".format(self.id, self.Starter.description)
 
 
 class Couple(models.Model):
@@ -71,6 +74,9 @@ class Couple(models.Model):
     foodEth = models.CharField(max_length=30)
     episode = models.ForeignKey(Episode, related_name='couple')
     coupleMeal = models.ForeignKey(CoupleMeal, related_name='couple')
+
+    def __str__(self):
+        return "{}: {}".format(self.id, self.nightNumber)
 
 
 class Results(models.Model):
