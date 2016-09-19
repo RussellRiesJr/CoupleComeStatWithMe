@@ -191,3 +191,13 @@ class EntreeProteinOverallViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class EntreeProteinStyleWinnersViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT WinnerTotals.id, WinnerTotals.ProteinStyle as 'Portein Style', WinnerTotals.TimesUsed as 'Times Used By Winner' FROM (SELECT e.id, e.proteinStyle as ProteinStyle, COUNT(e.proteinStyle) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_entree e WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.entree_id = e.id AND r.outcome = '1st' GROUP BY ProteinStyle) as WinnerTotals ORDER BY WinnerTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
