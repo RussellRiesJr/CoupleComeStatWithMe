@@ -40,5 +40,6 @@ urlpatterns = [
     url(r'^winsby/mrtlstat', views.WinsByMrtlStatViewSet.as_view({'get': 'list'})),
     url(r'^scores/avgwin', views.AverageWinningScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/avgoverall', views.AverageOverallScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/highest', views.HighestScoreViewSet.as_view({'get': 'list'})),
 ]
 
