@@ -83,11 +83,21 @@ class WinsByNightViewSet(viewsets.ViewSet):
         return Response(data)
 
 
-class WinsByAgeViewSet(viewsets.ModelViewSet):
+class WinsByAgeViewSet(viewsets.ViewSet):
     def list(self, request):
         with sqlite3.connect("./db.sqlite3") as database:
             db = database.cursor()
             queryset = db.execute('''SELECT AgeWins.id as ID, AgeWins.ageRange as AgeRange, COUNT(AgeWins.TotalWins) as Wins FROM (SELECT c.id, c.ageRange as ageRange, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY ageRange) as AgeWins GROUP BY AgeWins.ageRange''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
+class WinsByMrtlStatViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT MrtlWins.id, MrtlWins.mrtlStat as 'Marital Status', COUNT(MrtlWins.TotalWins) as Wins FROM(SELECT c.id, c.mrtlStat as mrtlStat, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY mrtlStat) as MrtlWins GROUP BY MrtlWins.mrtlStat''')
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
