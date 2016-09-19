@@ -75,7 +75,7 @@ class ResultsViewSet(viewsets.ModelViewSet):
 
 # Custom Views for Raw SQL queries
 
-
+# Scores
 class WinsByNightViewSet(viewsets.ViewSet):
     def list(self, request):
         with sqlite3.connect("./db.sqlite3") as database:
@@ -176,6 +176,7 @@ class LowestWinningScoreViewSet(viewsets.ViewSet):
         return Response(data)
 
 
+# Entrees
 class EntreeProteinWinnersViewSet(viewsets.ViewSet):
     def list(self, request):
         with sqlite3.connect("./db.sqlite3") as database:
@@ -224,3 +225,16 @@ class EntreeSideWinnersViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class EntreeSideOverallViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT OverallTotals.id, OverallTotals.Side as Sides, OverallTotals.TimesUsed as 'Times Used Overall' FROM (SELECT e.id, e.side as Side, COUNT(e.side) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_entree e WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.entree_id = e.id GROUP BY Side) as OverallTotals ORDER BY OverallTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
+# Starters
