@@ -40,9 +40,12 @@ urlpatterns = [
     url(r'^winsby/mrtlstat', views.WinsByMrtlStatViewSet.as_view({'get': 'list'})),
     url(r'^scores/avgwin', views.AverageWinningScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/avgoverall', views.AverageOverallScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/avgcouple', views.AverageCoupleVoteViewSet.as_view({'get': 'list'})),
     url(r'^scores/highest', views.HighestScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/lowest', views.LowestScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/highlosing', views.HighestLosingScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/lowwinning', views.LowestWinningScoreViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinwinners', views.EntreeProteinWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinoverall', views.EntreeProteinOverallViewSet.as_view({'get': 'list'})),
 ]
 

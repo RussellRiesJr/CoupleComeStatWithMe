@@ -123,6 +123,16 @@ class AverageOverallScoreViewSet(viewsets.ViewSet):
         return Response(data)
 
 
+class AverageCoupleVoteViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT Couples.id, (Couples.CoupleA + Couples.CoupleB) / 2 as 'AverageCoupleVote' FROM (SELECT id, AVG(oppAVote) as CoupleA, AVG(oppBVote) as CoupleB FROM statApi_results) as Couples''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
 class HighestScoreViewSet(viewsets.ViewSet):
     def list(self, request):
         with sqlite3.connect("./db.sqlite3") as database:
@@ -158,6 +168,26 @@ class LowestWinningScoreViewSet(viewsets.ViewSet):
         with sqlite3.connect("./db.sqlite3") as database:
             db = database.cursor()
             queryset = db.execute('''SELECT id, totalScore FROM statApi_results WHERE outcome = '1st' ORDER BY totalScore ASC LIMIT 1''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
+class EntreeProteinWinnersViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT WinnerTotals.id, WinnerTotals.Protein as Porteins, WinnerTotals.TimesUsed as 'Times Used By Winner' FROM (SELECT e.id, e.protein as Protein, COUNT(e.protein) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_entree e WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.entree_id = e.id AND r.outcome = '1st' GROUP BY Protein) as WinnerTotals ORDER BY WinnerTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
+class EntreeProteinOverallViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT OverallTotals.id, OverallTotals.Protein as Porteins, OverallTotals.TimesUsed as 'Times Used Overall' FROM (SELECT e.id, e.protein as Protein, COUNT(e.protein) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_entree e WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.entree_id = e.id GROUP BY Protein) as OverallTotals ORDER BY OverallTotals.TimesUsed DESC''')
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
