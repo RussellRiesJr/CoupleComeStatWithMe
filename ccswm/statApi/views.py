@@ -256,3 +256,13 @@ class StarterProteinOverallViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class StarterSideWinnersViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT WinnerTotals.id, WinnerTotals.Side as Sides, WinnerTotals.TimesUsed as 'Times Used By Winner' FROM (SELECT s.id, s.side as Side, COUNT(s.side) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_starter s WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.starter_id = s.id AND r.outcome = '1st' GROUP BY Side) as WinnerTotals ORDER BY WinnerTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
