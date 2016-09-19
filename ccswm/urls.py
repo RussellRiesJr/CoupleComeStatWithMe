@@ -30,9 +30,12 @@ router.register(r'couples', views.CoupleViewSet)
 router.register(r'results', views.ResultsViewSet)
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^winsby/night', views.WinsByNightViewSet.as_view({'get': 'list'})),
+    url(r'^winsby/age', views.WinsByAgeViewSet.as_view({'get': 'list'})),
 ]
 

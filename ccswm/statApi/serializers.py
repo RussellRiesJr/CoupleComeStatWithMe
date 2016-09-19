@@ -49,12 +49,3 @@ class ResultsSerializer(serializers.HyperlinkedModelSerializer):
         model = Results
         fields = ('id', 'url', 'couple', 'oppAVote', 'oppBVote', 'totalScore', 'outcome')
 
-
-class WinsByNightSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        fields = ('ID', 'NightNumber', 'Wins')
-
-
-class WinsByAgeSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        fields = ('ID', 'AgeRange', 'Wins')

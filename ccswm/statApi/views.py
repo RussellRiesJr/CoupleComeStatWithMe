@@ -1,12 +1,11 @@
 from ccswm.statApi.models import *
 from rest_framework import viewsets
+from rest_framework.response import Response
 from ccswm.statApi.serializers import *
 from rest_framework import permissions
 import sqlite3
-
-
-with sqlite3.connect("./db.sqlite3") as database:
-    db = database.cursor()
+from django.core import serializers
+import json
 
 
 # Create your views here.
@@ -74,11 +73,21 @@ class ResultsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
-class WinsByNightViewSet(viewsets.ModelViewSet):
-    queryset = db.execute('''SELECT NightWins.id as ID, NightWins.NightNumber as NightNumber, COUNT(NightWins.TotalWins) as Wins FROM (SELECT c.id, c.nightNumber as NightNumber, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY NightNumber) as NightWins GROUP BY NightWins.NightNumber''')
-    serializer_class = WinsByNightSerializer
+class WinsByNightViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT NightWins.id as ID, NightWins.NightNumber as NightNumber, COUNT(NightWins.TotalWins) as Wins FROM (SELECT c.id, c.nightNumber as NightNumber, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY NightNumber) as NightWins GROUP BY NightWins.NightNumber''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
 
 
 class WinsByAgeViewSet(viewsets.ModelViewSet):
-    queryset = db.execute('''SELECT AgeWins.id as ID, AgeWins.ageRange as AgeRange, COUNT(AgeWins.TotalWins) as Wins FROM (SELECT c.id, c.ageRange as ageRange, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY ageRange) as AgeWins GROUP BY AgeWins.ageRange''')
-    serializer_class = WinsByAgeSerializer
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT AgeWins.id as ID, AgeWins.ageRange as AgeRange, COUNT(AgeWins.TotalWins) as Wins FROM (SELECT c.id, c.ageRange as ageRange, r.outcome as TotalWins FROM statApi_results r, statApi_couple c WHERE c.id = r.couple_id AND r.outcome = '1st' ORDER BY ageRange) as AgeWins GROUP BY AgeWins.ageRange''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
