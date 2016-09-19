@@ -54,5 +54,6 @@ urlpatterns = [
     url(r'^starter/proteinwinners', views.StarterProteinWinnersViewSet.as_view({'get': 'list'})),
     url(r'^starter/proteinoverall', views.StarterProteinOverallViewSet.as_view({'get': 'list'})),
     url(r'^starter/sidewinners', views.StarterSideWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^starter/sideoverall', views.StarterSideOverallViewSet.as_view({'get': 'list'})),
 ]
 

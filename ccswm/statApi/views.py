@@ -266,3 +266,13 @@ class StarterSideWinnersViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class StarterSideOverallViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT OverallTotals.id, OverallTotals.Side as Sides, OverallTotals.TimesUsed as 'Times Used' FROM (SELECT s.id, s.side as Side, COUNT(s.side) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_starter s WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.starter_id = s.id GROUP BY Side) as OverallTotals ORDER BY OverallTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
