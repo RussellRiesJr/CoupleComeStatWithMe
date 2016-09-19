@@ -1,4 +1,4 @@
-from ccswm.statApi.models import Episode, Starter, Entree, Dessert, Entertainment, CoupleMeal, Couple, Results
+from ccswm.statApi.models import *
 from rest_framework import serializers
 
 
@@ -48,3 +48,13 @@ class ResultsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Results
         fields = ('id', 'url', 'couple', 'oppAVote', 'oppBVote', 'totalScore', 'outcome')
+
+
+class WinsByNightSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        fields = ('ID', 'NightNumber', 'Wins')
+
+
+class WinsByAgeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        fields = ('ID', 'AgeRange', 'Wins')
