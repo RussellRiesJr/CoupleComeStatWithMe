@@ -42,5 +42,6 @@ urlpatterns = [
     url(r'^scores/avgoverall', views.AverageOverallScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/highest', views.HighestScoreViewSet.as_view({'get': 'list'})),
     url(r'^scores/lowest', views.LowestScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/highlosing', views.HighestLosingScoreViewSet.as_view({'get': 'list'})),
 ]
 
