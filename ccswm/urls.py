@@ -38,5 +38,6 @@ urlpatterns = [
     url(r'^winsby/night', views.WinsByNightViewSet.as_view({'get': 'list'})),
     url(r'^winsby/age', views.WinsByAgeViewSet.as_view({'get': 'list'})),
     url(r'^winsby/mrtlstat', views.WinsByMrtlStatViewSet.as_view({'get': 'list'})),
+    url(r'^scores/avgwin', views.AverageWinningScoreViewSet.as_view({'get': 'list'})),
 ]
 

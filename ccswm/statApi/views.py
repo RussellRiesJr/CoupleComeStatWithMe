@@ -101,3 +101,13 @@ class WinsByMrtlStatViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class AverageWinningScoreViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT id, AVG(totalScore) FROM statApi_results WHERE outcome = "1st"''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
