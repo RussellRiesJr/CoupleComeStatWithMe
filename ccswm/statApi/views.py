@@ -151,3 +151,13 @@ class HighestLosingScoreViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+class LowestWinningScoreViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT id, totalScore FROM statApi_results WHERE outcome = '1st' ORDER BY totalScore ASC LIMIT 1''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
