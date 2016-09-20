@@ -23,7 +23,7 @@ class EntreeSerializer(serializers.HyperlinkedModelSerializer):
 class DessertSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Dessert
-        fields = ('id', 'url', 'primary', 'secondary')
+        fields = ('id', 'url', 'main', 'secondary')
 
 
 class EntertainmentSerializer(serializers.HyperlinkedModelSerializer):

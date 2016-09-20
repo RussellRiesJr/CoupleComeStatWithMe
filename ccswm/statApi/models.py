@@ -40,7 +40,7 @@ class Entree(models.Model):
 
 
 class Dessert(models.Model):
-    primary = models.CharField(max_length=100)
+    main = models.CharField(max_length=100)
     secondary = models.CharField(max_length=100)
 
     def __str__(self):

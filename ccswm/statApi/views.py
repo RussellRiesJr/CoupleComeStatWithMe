@@ -296,3 +296,24 @@ class StarterProteinStyleOverallViewSet(viewsets.ViewSet):
             results = queryset.fetchall()
         data = json.dumps(results)
         return Response(data)
+
+
+# Desserts
+class DessertMainWinnersViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT WinnerTotals.id, WinnerTotals.Main as 'Main Item', WinnerTotals.TimesUsed as 'Times Used' FROM (SELECT d.id, d.main as 'Main', COUNT(d.main) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_dessert d WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.dessert_id = d.id AND r.outcome = '1st' GROUP BY Main) as WinnerTotals ORDER BY WinnerTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
+
+
+class DessertMainOverallViewSet(viewsets.ViewSet):
+    def list(self, request):
+        with sqlite3.connect("./db.sqlite3") as database:
+            db = database.cursor()
+            queryset = db.execute('''SELECT OverallTotals.id, OverallTotals.Main as 'Main Item', OverallTotals.TimesUsed as 'Times Used' FROM (SELECT d.id, d.main as 'Main', COUNT(d.main) as TimesUsed FROM statApi_results r, statApi_couple c, statApi_couplemeal m, statApi_dessert d WHERE r.couple_id = c.id AND c.coupleMeal_id = m.id AND m.dessert_id = d.id GROUP BY Main) as OverallTotals ORDER BY OverallTotals.TimesUsed DESC''')
+            results = queryset.fetchall()
+        data = json.dumps(results)
+        return Response(data)
