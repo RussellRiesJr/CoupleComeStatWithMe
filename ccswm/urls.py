@@ -30,9 +30,36 @@ router.register(r'couples', views.CoupleViewSet)
 router.register(r'results', views.ResultsViewSet)
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^winsby/night', views.WinsByNightViewSet.as_view({'get': 'list'})),
+    url(r'^winsby/age', views.WinsByAgeViewSet.as_view({'get': 'list'})),
+    url(r'^winsby/mrtlstat', views.WinsByMrtlStatViewSet.as_view({'get': 'list'})),
+    url(r'^scores/avgwin', views.AverageWinningScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/avgoverall', views.AverageOverallScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/avgcouple', views.AverageCoupleVoteViewSet.as_view({'get': 'list'})),
+    url(r'^scores/highest', views.HighestScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/lowest', views.LowestScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/highlosing', views.HighestLosingScoreViewSet.as_view({'get': 'list'})),
+    url(r'^scores/lowwinning', views.LowestWinningScoreViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinwinners', views.EntreeProteinWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinoverall', views.EntreeProteinOverallViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinstylewinners', views.EntreeProteinStyleWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^entree/proteinstyleoverall', views.EntreeProteinStyleOverallViewSet.as_view({'get': 'list'})),
+    url(r'^entree/sidewinners', views.EntreeSideWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^entree/sideoverall', views.EntreeSideOverallViewSet.as_view({'get': 'list'})),
+    url(r'^starter/proteinwinners', views.StarterProteinWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^starter/proteinoverall', views.StarterProteinOverallViewSet.as_view({'get': 'list'})),
+    url(r'^starter/sidewinners', views.StarterSideWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^starter/sideoverall', views.StarterSideOverallViewSet.as_view({'get': 'list'})),
+    url(r'^starter/proteinstylewinners', views.StarterProteinStyleWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^starter/proteinstyleoverall', views.StarterProteinStyleOverallViewSet.as_view({'get': 'list'})),
+    url(r'^dessert/mainwinners', views.DessertMainWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^dessert/mainoverall', views.DessertMainOverallViewSet.as_view({'get': 'list'})),
+    url(r'^dessert/secondarywinners', views.DessertSecondaryWinnersViewSet.as_view({'get': 'list'})),
+    url(r'^dessert/secondaryoverall', views.DessertSecondaryOverallViewSet.as_view({'get': 'list'})),
 ]
 

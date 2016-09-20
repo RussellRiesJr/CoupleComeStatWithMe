@@ -1,4 +1,4 @@
-from ccswm.statApi.models import Episode, Starter, Entree, Dessert, Entertainment, CoupleMeal, Couple, Results
+from ccswm.statApi.models import *
 from rest_framework import serializers
 
 
@@ -23,7 +23,7 @@ class EntreeSerializer(serializers.HyperlinkedModelSerializer):
 class DessertSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Dessert
-        fields = ('id', 'url', 'primary', 'secondary')
+        fields = ('id', 'url', 'main', 'secondary')
 
 
 class EntertainmentSerializer(serializers.HyperlinkedModelSerializer):
@@ -48,3 +48,4 @@ class ResultsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Results
         fields = ('id', 'url', 'couple', 'oppAVote', 'oppBVote', 'totalScore', 'outcome')
+
