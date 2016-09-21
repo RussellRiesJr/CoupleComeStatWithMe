@@ -374,3 +374,7 @@ app = angular.module('ccswm', ['ngRoute'])
 .controller("TableCtrl", function($scope) {
 
 })
+
+.controller("SingleCtrl", function($scope) {
+
+})
