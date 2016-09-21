@@ -14,3 +14,29 @@
 .font-drop {
     font-family: 'Merriweather Sans', sans-serif;
 }
+
+/* Font for single display items*/
+.font-single {
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #FFDB8F;
+    font-size: 250%;
+}
+
+/* Padding for the Welcome Blurb*/
+.blurb {
+    padding-top: 30px;
+    padding-left: 60px;
+    text-align: justify;
+}
+
+.middle {
+    text-align: center;
+}
+
+.middle-drop {
+    object-position: center;
+}
+
+.row {
+    display: flex;
+}

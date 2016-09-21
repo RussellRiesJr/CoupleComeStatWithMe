@@ -57,7 +57,7 @@ app = angular.module('ccswm', ['ngRoute'])
         })
     };
 
-    $scope.GetAvgWinOverall = function () {
+    $scope.GetAvgScoreOverall = function () {
         StatsFactory.fetchAvgScoreOverall()
         .then((res) => {
             $scope.Title = "Average Score Overall",

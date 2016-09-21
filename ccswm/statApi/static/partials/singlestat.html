@@ -1,8 +1,10 @@
 <table>
-    <h3 class="font">{{ Title }}</h3>
-    <tbody>
-        <tr ng-repeat="d in data1 track by $index">
-            <td class="font">{{ d[1] }}</td>
-        </tr>
-    </tbody>
+    <div class="row col-lg-10 col-md-10 col-sm-10">
+        <h3 class="font middle-drop">{{ Title }}</h3>
+        <tbody>
+            <tr ng-repeat="d in data1 track by $index">
+                <td class="font-single middle-drop">{{ d[1] }}</td>
+            </tr>
+        </tbody>
+    </div>
 </table>
