@@ -59,6 +59,7 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
     'apiUrl',
     'couplescomestatwithme.co.uk',
+    '138.68.146.190',
 )
 
 ROOT_URLCONF = 'ccswm.urls'

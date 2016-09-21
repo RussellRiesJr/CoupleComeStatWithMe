@@ -13,5 +13,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ccswm.settings")
 
-# application = get_wsgi_application()
-application = django.core.handlers.wsgi.WSGIHandler()
+application = get_wsgi_application()
+# application = django.core.handlers.wsgi.WSGIHandler()
