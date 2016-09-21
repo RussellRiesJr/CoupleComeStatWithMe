@@ -128,6 +128,132 @@ app = angular.module('ccswm', ['ngRoute'])
             $location.path('/table')
         })
     };
+
+    $scope.GetEntreeProteinStyleWinners = function () {
+        StatsFactory.fetchEntreeProteinStyleWinners()
+        .then((res) => {
+            $scope.Title = "Entree Main Style By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetEntreeProteinStyleOverall = function () {
+        StatsFactory.fetchEntreeProteinStyleOverall()
+        .then((res) => {
+            $scope.Title = "Entree Main Style Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetEntreeSideWinners = function () {
+        StatsFactory.fetchEntreeSideWinners()
+        .then((res) => {
+            $scope.Title = "Entree Side By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetEntreeSideOverall = function () {
+        StatsFactory.fetchEntreeSideOverall()
+        .then((res) => {
+            $scope.Title = "Entree Side Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterProteinWinners = function () {
+        StatsFactory.fetchStarterProteinWinners()
+        .then((res) => {
+            $scope.Title = "Starter Main Ingredient By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterProteinOverall = function () {
+        StatsFactory.fetchStarterProteinOverall()
+        .then((res) => {
+            $scope.Title = "Starter Main Ingredient Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterProteinStyleWinners = function () {
+        StatsFactory.fetchStarterProteinStyleWinners()
+        .then((res) => {
+            $scope.Title = "Starter Main Style By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterProteinStyleOverall = function () {
+        StatsFactory.fetchStarterProteinStyleOverall()
+        .then((res) => {
+            $scope.Title = "Starter Main Style Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterSideWinners = function () {
+        StatsFactory.fetchStarterSideWinners()
+        .then((res) => {
+            $scope.Title = "Starter Side By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetStarterSideOverall = function () {
+        StatsFactory.fetchStarterSideOverall()
+        .then((res) => {
+            $scope.Title = "Starter Side Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetDessertMainWinners = function () {
+        StatsFactory.fetchDessertMainWinners()
+        .then((res) => {
+            $scope.Title = "Dessert Main Ingredient By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetDessertMainOverall = function () {
+        StatsFactory.fetchDessertMainOverall()
+        .then((res) => {
+            $scope.Title = "Dessert Main Ingredient Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetDessertSecondaryWinners = function () {
+        StatsFactory.fetchDessertSecondaryWinners()
+        .then((res) => {
+            $scope.Title = "Dessert Side Ingredient By Winners",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
+
+    $scope.GetDessertSecondaryOverall = function () {
+        StatsFactory.fetchDessertSecondaryOverall()
+        .then((res) => {
+            $scope.Title = "Dessert Side Ingredient Overall",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+    };
 })
 
 .controller("MainCtrl", function(StatsFactory, $scope) {
@@ -183,6 +309,62 @@ app = angular.module('ccswm', ['ngRoute'])
         }
         if ($scope.FunctionChange === 'EntreeProteinOverall') {
             $scope.$parent.GetEntreeProteinOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'EntreeProteinStyleWinners') {
+            $scope.$parent.GetEntreeProteinStyleWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'EntreeProteinStyleOverall') {
+            $scope.$parent.GetEntreeProteinStyleOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'EntreeSideWinners') {
+            $scope.$parent.GetEntreeSideWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'EntreeSideOverall') {
+            $scope.$parent.GetEntreeSideOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterProteinWinners') {
+            $scope.$parent.GetStarterProteinWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterProteinOverall') {
+            $scope.$parent.GetStarterProteinOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterProteinStyleWinners') {
+            $scope.$parent.GetStarterProteinStyleWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterProteinStyleOverall') {
+            $scope.$parent.GetStarterProteinStyleOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterSideWinners') {
+            $scope.$parent.GetStarterSideWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'StarterSideOverall') {
+            $scope.$parent.GetStarterSideOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'DessertMainWinners') {
+            $scope.$parent.GetDessertMainWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'DessertMainOverall') {
+            $scope.$parent.GetDessertMainOverall()
+            return
+        }
+        if ($scope.FunctionChange === 'DessertSecondaryWinners') {
+            $scope.$parent.GetDessertSecondaryWinners()
+            return
+        }
+        if ($scope.FunctionChange === 'DessertSecondaryOverall') {
+            $scope.$parent.GetDessertSecondaryOverall()
             return
         }
     }
