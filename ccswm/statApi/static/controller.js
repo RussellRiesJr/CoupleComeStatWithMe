@@ -28,6 +28,7 @@ app = angular.module('ccswm', ['ngRoute'])
             $scope.data1 = res.data
             $location.path('/table')
         })
+        return
     };
 
     $scope.GetWinsByAge = function () {
@@ -37,6 +38,17 @@ app = angular.module('ccswm', ['ngRoute'])
             $scope.data1 = res.data
             $location.path('/table')
         })
+        return
+    };
+
+    $scope.GetWinsByMrtlStat = function () {
+        StatsFactory.fetchWinsByMrtlStat()
+        .then((res) => {
+            $scope.Title = "Most Wins By Marital Status",
+            $scope.data1 = res.data
+            $location.path('/table')
+        })
+        return
     };
 })
 
@@ -53,6 +65,8 @@ app = angular.module('ccswm', ['ngRoute'])
         if ($scope.FunctionChange === 'WinsByAge') {}
             $scope.$parent.GetWinsByAge()
         }
+        if ($scope.FunctionChange === 'WinsByMrtlStat') {}
+            $scope.$parent.GetWinsByMrtlStat()
     })
 
 
