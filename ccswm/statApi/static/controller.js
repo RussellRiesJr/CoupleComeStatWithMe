@@ -33,8 +33,9 @@ app = angular.module('ccswm', ['ngRoute'])
     $scope.GetWinsByAge = function () {
         StatsFactory.fetchWinsByAge()
         .then((res) => {
-            $scope.Title = "Most Wins By Age",
+            $scope.Title = "Most Wins By Age Group",
             $scope.data1 = res.data
+            $location.path('/table')
         })
     };
 })
