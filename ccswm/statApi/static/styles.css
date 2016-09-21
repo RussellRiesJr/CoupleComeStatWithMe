@@ -1,4 +1,16 @@
+/*Background*/
+.background {
+    background-color: #240000
+}
+
+
 /* Font for the site */
 .font {
-  font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #FFDB8F;
+}
+
+/* Font for the dropdown */
+.font-drop {
+    font-family: 'Merriweather Sans', sans-serif;
 }
