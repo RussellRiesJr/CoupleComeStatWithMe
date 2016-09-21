@@ -1,4 +1,4 @@
-app.factory('StatsFactory', function($http) {
+app.factory('StatsFactory', function($http, apiUrl) {
 
     let Stats;
 
@@ -6,113 +6,113 @@ app.factory('StatsFactory', function($http) {
 
         // Scores
         fetchWinsByNight: () => {
-            return $http.get('http://localhost:8000/winsby/night/')
+            return $http.get(`${apiUrl}/winsby/night/`)
         },
 
         fetchWinsByAge: () => {
-            return $http.get('http://localhost:8000/winsby/age/')
+            return $http.get(`${apiUrl}/winsby/age/`)
         },
 
         fetchWinsByMrtlStat: () => {
-            return $http.get('http://localhost:8000/winsby/mrtlstat/')
+            return $http.get(`${apiUrl}/winsby/mrtlstat/`)
         },
 
         fetchAvgWinScore: () => {
-            return $http.get('http://localhost:8000/scores/avgwin/')
+            return $http.get(`${apiUrl}/scores/avgwin/`)
         },
 
         fetchAvgScoreOverall: () => {
-            return $http.get('http://localhost:8000/scores/avgoverall/')
+            return $http.get(`${apiUrl}/scores/avgoverall/`)
         },
 
         fetchAvgCoupleVote: () => {
-            return $http.get('http://localhost:8000/scores/avgcouple/')
+            return $http.get(`${apiUrl}/scores/avgcouple/`)
         },
 
         fetchHighestScore: () => {
-            return $http.get('http://localhost:8000/scores/highest/')
+            return $http.get(`${apiUrl}/scores/highest/`)
         },
 
         fetchLowestScore: () => {
-            return $http.get('http://localhost:8000/scores/lowest/')
+            return $http.get(`${apiUrl}/scores/lowest/`)
         },
 
         fetchHighestLosingScore: () => {
-            return $http.get('http://localhost:8000/scores/highlosing/')
+            return $http.get(`${apiUrl}/scores/highlosing/`)
         },
 
         fetchLowestWinningScore: () => {
-            return $http.get('http://localhost:8000/scores/lowwinning/')
+            return $http.get(`${apiUrl}/scores/lowwinning/`)
         },
 
 
         // Entrees
         fetchEntreeProteinWinners: () => {
-            return $http.get('http://localhost:8000/entree/proteinwinners/')
+            return $http.get(`${apiUrl}/entree/proteinwinners/`)
         },
 
         fetchEntreeProteinOverall: () => {
-            return $http.get('http://localhost:8000/entree/proteinoverall/')
+            return $http.get(`${apiUrl}/entree/proteinoverall/`)
         },
 
         fetchEntreeProteinStyleWinners: () => {
-            return $http.get('http://localhost:8000/entree/proteinstylewinners/')
+            return $http.get(`${apiUrl}/entree/proteinstylewinners/`)
         },
 
         fetchEntreeProteinStyleOverall: () => {
-            return $http.get('http://localhost:8000/entree/proteinstyleoverall/')
+            return $http.get(`${apiUrl}/entree/proteinstyleoverall/`)
         },
 
         fetchEntreeSideWinners: () => {
-            return $http.get('http://localhost:8000/entree/sidewinners/')
+            return $http.get(`${apiUrl}/entree/sidewinners/`)
         },
 
         fetchEntreeSideOverall: () => {
-            return $http.get('http://localhost:8000/entree/sideoverall/')
+            return $http.get(`${apiUrl}/entree/sideoverall/`)
         },
 
 
         // Starters
         fetchStarterProteinWinners: () => {
-            return $http.get('http://localhost:8000/starter/proteinwinners/')
+            return $http.get(`${apiUrl}/starter/proteinwinners/`)
         },
 
         fetchStarterProteinOverall: () => {
-            return $http.get('http://localhost:8000/starter/proteinoverall/')
+            return $http.get(`${apiUrl}/starter/proteinoverall/`)
         },
 
         fetchStarterSideWinners: () => {
-            return $http.get('http://localhost:8000/starter/sidewinners/')
+            return $http.get(`${apiUrl}/starter/sidewinners/`)
         },
 
         fetchStarterSideOverall: () => {
-            return $http.get('http://localhost:8000/starter/sideoverall/')
+            return $http.get(`${apiUrl}/starter/sideoverall/`)
         },
 
         fetchStarterProteinStyleWinners: () => {
-            return $http.get('http://localhost:8000/starter/proteinstylewinners/')
+            return $http.get(`${apiUrl}/starter/proteinstylewinners/`)
         },
 
         fetchStarterProteinStyleOverall: () => {
-            return $http.get('http://localhost:8000/starter/proteinstyleoverall/')
+            return $http.get(`${apiUrl}/starter/proteinstyleoverall/`)
         },
 
 
         // Desserts
         fetchDessertMainWinners: () => {
-            return $http.get('http://localhost:8000/dessert/mainwinners/')
+            return $http.get(`${apiUrl}/dessert/mainwinners/`)
         },
 
         fetchDessertMainOverall: () => {
-            return $http.get('http://localhost:8000/dessert/mainoverall/')
+            return $http.get(`${apiUrl}/dessert/mainoverall/`)
         },
 
         fetchDessertSecondaryWinners: () => {
-            return $http.get('http://localhost:8000/dessert/secondarywinners/')
+            return $http.get(`${apiUrl}/dessert/secondarywinners/`)
         },
 
         fetchDessertSecondaryOverall: () => {
-            return $http.get('http://localhost:8000/dessert/secondaryoverall/')
+            return $http.get(`${apiUrl}/dessert/secondaryoverall/`)
         },
 
     };

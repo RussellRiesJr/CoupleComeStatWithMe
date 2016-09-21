@@ -44,7 +44,7 @@ class Dessert(models.Model):
     secondary = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{}: {}".format(self.id, self.primary)
+        return "{}: {}".format(self.id, self.main)
 
 
 class Entertainment(models.Model):

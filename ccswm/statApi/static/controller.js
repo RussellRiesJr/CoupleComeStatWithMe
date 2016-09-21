@@ -1,4 +1,5 @@
 app = angular.module('ccswm', ['ngRoute'])
+    .constant('apiUrl', 'http://localhost:8000')
     .config(($routeProvider) => {
         $routeProvider
             .when('/', {
@@ -57,7 +58,7 @@ app = angular.module('ccswm', ['ngRoute'])
         })
     };
 
-    $scope.GetAvgWinOverall = function () {
+    $scope.GetAvgScoreOverall = function () {
         StatsFactory.fetchAvgScoreOverall()
         .then((res) => {
             $scope.Title = "Average Score Overall",
