@@ -4,39 +4,42 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Couples Come Stat With Me</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="ccswm/statApi/static/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="ccswm/statApi/static/styles.css">
 </head>
-<body>
-    <div ng-app="ccswm">
+<body class="background">
+    <div ng-app="ccswm" class="container">
+        <h1 class="font middle">COUPLES COME STAT WITH ME</h1>
         <div ng-controller="MasterCtrl">
             <div ng-controller="NavCtrl">
-                <select ng-model="FunctionChange" ng-change="go()">
-                    <option value="WinsByNight">Most Wins By Night</option>
-                    <option value="WinsByAge">Most Wins By Age Group</option>
-                    <option value="WinsByMrtlStat">Most Wins By Marital Status</option>
-                    <option value="AvgWinScore">Average Winning Score</option>
-                    <option value="AvgScoreOverall">Average Score Overall</option>
-                    <option value="AvgCoupleVote">Average Vote By Couple</option>
-                    <option value="HighestScore">Highest Score</option>
-                    <option value="LowestScore">Lowest Score</option>
-                    <option value="HighestLosingScore">Highest Losing Score</option>
-                    <option value="LowestWinningScore">Lowest Winning Score</option>
-                    <option value="EntreeProteinWinners">Entree Main Ingredient By Winners</option>
-                    <option value="EntreeProteinOverall">Entree Main Ingredient Overall</option>
-                    <option value="EntreeProteinStyleWinners">Entree Main Style By Winners</option>
-                    <option value="EntreeProteinStyleOverall">Entree Main Style Overall</option>
-                    <option value="EntreeSideWinners">Entree Side By Winners</option>
-                    <option value="EntreeSideOverall">Entree Side Overall</option>
-                    <option value="StarterProteinWinners">Starter Main Ingredient By Winners</option>
-                    <option value="StarterProteinOverall">Starter Main Ingredient Overall</option>
-                    <option value="StarterProteinStyleWinners">Starter Main Style By Winners</option>
-                    <option value="StarterProteinStyleOverall">Starter Main Style Overall</option>
-                    <option value="StarterSideWinners">Starter Side By Winners</option>
-                    <option value="StarterSideOverall">Starter Side Overall</option>
-                    <option value="DessertMainWinners">Dessert Main Ingredient By Winners</option>
-                    <option value="DessertMainOverall">Dessert Main Ingredient Overall</option>
-                    <option value="DessertSecondaryWinners">Dessert Side Ingredient By Winners</option>
-                    <option value="DessertSecondaryOverall">Dessert Side Ingredient Overall</option>
+                <select ng-model="FunctionChange" class="middle-drop" ng-change="go()">
+                    <option class="font-drop" value="WinsByNight">Most Wins By Night</option>
+                    <option class="font-drop" value="WinsByAge">Most Wins By Age Group</option>
+                    <option class="font-drop" value="WinsByMrtlStat">Most Wins By Marital Status</option>
+                    <option class="font-drop" value="AvgWinScore">Average Winning Score</option>
+                    <option class="font-drop" value="AvgScoreOverall">Average Score Overall</option>
+                    <option class="font-drop" value="AvgCoupleVote">Average Vote By Couple</option>
+                    <option class="font-drop" value="HighestScore">Highest Score</option>
+                    <option class="font-drop" value="LowestScore">Lowest Score</option>
+                    <option class="font-drop" value="HighestLosingScore">Highest Losing Score</option>
+                    <option class="font-drop" value="LowestWinningScore">Lowest Winning Score</option>
+                    <option class="font-drop" value="EntreeProteinWinners">Entree Main Ingredient By Winners</option>
+                    <option class="font-drop" value="EntreeProteinOverall">Entree Main Ingredient Overall</option>
+                    <option class="font-drop" value="EntreeProteinStyleWinners">Entree Main Style By Winners</option>
+                    <option class="font-drop" value="EntreeProteinStyleOverall">Entree Main Style Overall</option>
+                    <option class="font-drop" value="EntreeSideWinners">Entree Side By Winners</option>
+                    <option class="font-drop" value="EntreeSideOverall">Entree Side Overall</option>
+                    <option class="font-drop" value="StarterProteinWinners">Starter Main Ingredient By Winners</option>
+                    <option class="font-drop" value="StarterProteinOverall">Starter Main Ingredient Overall</option>
+                    <option class="font-drop" value="StarterProteinStyleWinners">Starter Main Style By Winners</option>
+                    <option class="font-drop" value="StarterProteinStyleOverall">Starter Main Style Overall</option>
+                    <option class="font-drop" value="StarterSideWinners">Starter Side By Winners</option>
+                    <option class="font-drop" value="StarterSideOverall">Starter Side Overall</option>
+                    <option class="font-drop" value="DessertMainWinners">Dessert Main Ingredient By Winners</option>
+                    <option class="font-drop" value="DessertMainOverall">Dessert Main Ingredient Overall</option>
+                    <option class="font-drop" value="DessertSecondaryWinners">Dessert Side Ingredient By Winners</option>
+                    <option class="font-drop" value="DessertSecondaryOverall">Dessert Side Ingredient Overall</option>
                     
                 </select>
             </div>

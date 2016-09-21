@@ -1,4 +1,5 @@
 app = angular.module('ccswm', ['ngRoute'])
+    .constant('apiUrl', 'http://localhost:8000')
     .config(($routeProvider) => {
         $routeProvider
             .when('/', {
