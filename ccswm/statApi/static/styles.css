@@ -22,6 +22,11 @@
     font-size: 250%;
 }
 
+/* Link Color*/
+.link {
+    color: #FFDB8F;
+}
+
 /* Padding for the Welcome Blurb*/
 .blurb {
     padding-top: 30px;
@@ -40,3 +45,8 @@
 .row {
     display: flex;
 }
+
+.table-width {
+    width: 75%;
+}
+
