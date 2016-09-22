@@ -23,7 +23,7 @@
 }
 
 /* Link Color*/
-.link {
+.link, .link:visited {
     color: #FFDB8F;
 }
 
